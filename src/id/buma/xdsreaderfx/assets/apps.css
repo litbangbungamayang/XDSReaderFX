@@ -1,0 +1,25 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.banner-atas {
+    -fx-background-color: #029340;
+}
+
+.button-bar {
+    -fx-background-color: #dae4fe;
+}
+
+.std-button {
+    -fx-background-color: #0300a5;
+    -fx-text-fill: #fefefe;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: white;
+    -fx-border-radius: 15pt;
+    -fx-background-radius: 15pt;
+}
+.std-button:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #93aef9;
+    -fx-text-fill: black;
+}

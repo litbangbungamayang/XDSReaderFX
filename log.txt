@@ -1,0 +1,52 @@
+25-MAY-2019 9:15:46 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+25-MAY-2019 9:16:8 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+25-0MAY-2019 09:20:31 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+25-MAY-2019 09:21:05 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+25-MAY-2019 09:21:49 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+25-MAY-2019 09:21:52 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+26-MAY-2019 15:03:39 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+26-MAY-2019 17:41:59 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+26-MAY-2019 17:55:03 : File name = 1.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: "rrr"
+26-MAY-2019 17:55:31 : File name = 1.xls; Error at row = 225 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:06:37 : File name = 1.xls; Error at row = 224 ;java.text.ParseException: Unparseable date: "rrr"
+27-MAY-2019 08:06:46 : File name = 1.xls; Error at row = 224 ;java.text.ParseException: Unparseable date: "rrr"
+27-MAY-2019 08:07:21 : File name = 1.xls; Error at row = 224 ;java.text.ParseException: Unparseable date: "rrr"
+27-MAY-2019 08:15:25 : File name = 1534.xls; Error at row = 28 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:15:27 : File name = 1534 (copy).xls; Error at row = 28 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:17:02 : File name = 1534.xls; Error at row = 28 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:17:07 : File name = 1534 (copy).xls; Error at row = 28 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:20:22 : File name = 1534 (copy).xls; Error at row = 28 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:20:40 : File name = 1534 (copy).xls; Error at row = 28 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:29:24 : File name = 8.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+27-MAY-2019 08:29:25 : File name = 2018.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+27-MAY-2019 08:29:26 : File name = 60.xls; Error at row = 271 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:29:27 : File name = 61.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+27-MAY-2019 08:29:29 : File name = 1534 (copy).xls; Error at row = 28 ;java.lang.NullPointerException
+27-MAY-2019 08:33:33 : File name = 8.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+27-MAY-2019 08:36:38 : File name = 8.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+27-MAY-2019 08:37:21 : File name = 8.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+27-MAY-2019 08:38:28 : File name = 8.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+27-MAY-2019 08:40:15 : File name = 8.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:51:51 : File name = 8.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 08:58:46 : File name = 8.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 09:05:07 : File name = 8.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 09:05:26 : File name = 8.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 09:08:44 : File name = 8.xls; Error at row = 17 ;java.text.ParseException: Unparseable date: ""
+27-MAY-2019 09:09:11 : File name = 8.xls; Error at row = 18 ;java.lang.NullPointerException
+27-MAY-2019 09:18:18 : File name = 8.xls; Error at row = 18 ;java.lang.NullPointerException
+27-MAY-2019 09:22:04 : File name = 8.xls; Error at row = 18 ;java.lang.NullPointerException
+27-MAY-2019 09:31:32 : File name = 8.xls; Error at row = 18 ;java.lang.NullPointerException
+27-MAY-2019 09:35:20 : File name = 8.xls; Error at row = 18 ;java.lang.NullPointerException
+27-MAY-2019 10:51:50 : File name = 61.xls; Error at row = 16 ;java.lang.IllegalArgumentException: Unterminated quote
+27-MAY-2019 12:35:33 : 2019-05-27T12:35:33.047 : com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+27-MAY-2019 12:36:40 : 2019-05-27T12:36:40.209 : com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+27-MAY-2019 12:38:49 : 2019-05-27T12:38:49.630 : com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+27-MAY-2019 12:38:51 : 2019-05-27T12:38:51.249 : com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
