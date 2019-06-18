@@ -6,6 +6,7 @@
 package id.buma.xdsreaderfx.dao;
 
 import id.buma.xdsreaderfx.model.DataXDS;
+import id.buma.xdsreaderfx.model.Rafaksi;
 import java.util.List;
 
 /**
@@ -17,5 +18,7 @@ import java.util.List;
 public interface XdsDAO {
 
     public Boolean insertXds(List<DataXDS> lxds);
+    
+    public int getRangeRafaksi(Double brix, int HK);
     
 }

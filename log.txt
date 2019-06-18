@@ -50,3 +50,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 27-MAY-2019 12:38:51 : 2019-05-27T12:38:51.249 : com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+15-JUNE-2019 11:53:45 : File name = 8.xls; Error at row = 16 ;java.lang.NullPointerException
+15-JUNE-2019 11:55:14 : File name = 60.xls; Error at row = 16 ;java.lang.NullPointerException
+16-JUNE-2019 17:46:39 : File name = 60.xls; Error at row = 16 ;java.lang.NullPointerException
+16-JUNE-2019 17:47:55 : File name = 60.xls; Error at row = 16 ;java.lang.NullPointerException

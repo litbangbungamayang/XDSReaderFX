@@ -49,6 +49,7 @@ public class ReaderController {
     public ObservableList<File> listXdsFiles = FXCollections.observableArrayList();
     public ObservableList<String> listXdsFileName = FXCollections.observableArrayList();
     private static final XdsDAOSQL xdsdao = new XdsDAOSQL();
+    private static final BusinessFlow bflow = new BusinessFlow();
     
     public ScheduledService xdsService = new ScheduledService() {
         @Override
@@ -152,6 +153,7 @@ public class ReaderController {
                         java.sql.Timestamp tglTs = new java.sql.Timestamp(sdf.parse(dateContent + " " + timeContent).getTime());
                         Double brix = brixCell.getNumericCellValue();
                         Double pol = polCell.getNumericCellValue();
+                        bflow.cekRafaksi(brix, pol);
                         //System.out.println("File name = " + xdsFile.getName() + "; Row " + dataNumber + ":" + idAnalisa + "|" + tglTs + "|" + brix + "|" + pol);
                         DataXDS dataxds = new DataXDS(idAnalisa, tglTs ,brix, pol);
                         lxds.add(dataxds);
