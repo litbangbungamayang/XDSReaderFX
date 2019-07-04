@@ -54,3 +54,5 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 15-JUNE-2019 11:55:14 : File name = 60.xls; Error at row = 16 ;java.lang.NullPointerException
 16-JUNE-2019 17:46:39 : File name = 60.xls; Error at row = 16 ;java.lang.NullPointerException
 16-JUNE-2019 17:47:55 : File name = 60.xls; Error at row = 16 ;java.lang.NullPointerException
+04-JULY-2019 15:02:53 : File name = Coba.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+04-JULY-2019 15:14:06 : File name = Coba.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell

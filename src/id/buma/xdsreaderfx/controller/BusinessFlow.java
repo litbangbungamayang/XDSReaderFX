@@ -18,21 +18,17 @@ import java.text.DecimalFormat;
 
 public class BusinessFlow {
     
-    public int cekRafaksi(Double brix, Double pol){
+    public int cekRafaksi(String idAnalisa, Double brix, Double pol, Double purity){
         XdsDAOSQL xdsdao = new XdsDAOSQL();
         int rafaksi = 0;
         if (brix < 17.50){
-            Double HK = (pol/brix)*100;
             DecimalFormat dfBulat = new DecimalFormat("#");
-            DecimalFormat dfDuaAngka = new DecimalFormat("#.##");
             dfBulat.setRoundingMode(RoundingMode.HALF_UP);
-            dfDuaAngka.setRoundingMode(RoundingMode.HALF_UP);
-            //Double HKrounded = Double.valueOf(dfBulat.format(HK));
-            int HKrounded = Integer.valueOf(dfBulat.format(HK));
-            Double brixRounded = Double.valueOf(dfDuaAngka.format(brix));
-            rafaksi = xdsdao.getRangeRafaksi(brix,HKrounded);
+            int HKrounded = Integer.valueOf(dfBulat.format(purity));
+            rafaksi = xdsdao.getNilaiRafaksi(brix,HKrounded);
             // cek Brix
-            System.out.println("brix = " + brixRounded + "; HK = " + dfDuaAngka.format(HK) +"; HK(pemb) = " + HKrounded + "; rafaksi = " + rafaksi);
+            System.out.println("id = " + idAnalisa +"; brix = " + brix + "; pol = " + pol +"; HK = " + purity +"; HK(pemb) = " + 
+                    HKrounded + "; rafaksi = " + rafaksi);
         }
         return rafaksi;
     }

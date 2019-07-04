@@ -19,12 +19,16 @@ public class DataXDS {
     public java.sql.Timestamp tglAnalisa;
     public Double brix;
     public Double pol;
+    public Double purity;
+    public int rafaksi;
     
-    public DataXDS(String idAnalisa, java.sql.Timestamp tglAnalisa, Double brix, Double pol){
+    public DataXDS(String idAnalisa, java.sql.Timestamp tglAnalisa, Double brix, Double pol, Double purity, int rafaksi){
         this.idAnalisa = idAnalisa;
         this.tglAnalisa = tglAnalisa;
         this.brix = brix;
         this.pol = pol;
+        this.purity = purity;
+        this.rafaksi = rafaksi;
     }
 
     public String getIdAnalisa() {
@@ -57,6 +61,22 @@ public class DataXDS {
 
     public void setPol(Double pol) {
         this.pol = pol;
+    }
+
+    public int getRafaksi() {
+        return rafaksi;
+    }
+
+    public void setRafaksi(int rafaksi) {
+        this.rafaksi = rafaksi;
+    }
+
+    public Double getPurity() {
+        return purity;
+    }
+
+    public void setPurity(Double purity) {
+        this.purity = purity;
     }
     
     

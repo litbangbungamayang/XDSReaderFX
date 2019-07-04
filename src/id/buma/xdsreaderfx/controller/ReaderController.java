@@ -12,7 +12,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.RoundingMode;
 import java.nio.file.Files;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -116,8 +118,7 @@ public class ReaderController {
     }
     
     public Boolean readXds(File xdsFile){
-        try {
-            Workbook workbook = WorkbookFactory.create(xdsFile);
+        try (Workbook workbook = WorkbookFactory.create(xdsFile)){
             Sheet sheet = workbook.getSheet("Results");
             String confirmationCheck = "NIRSystems XDS ";
             Row rowConfirmation = sheet.getRow(7);
@@ -153,14 +154,26 @@ public class ReaderController {
                         java.sql.Timestamp tglTs = new java.sql.Timestamp(sdf.parse(dateContent + " " + timeContent).getTime());
                         Double brix = brixCell.getNumericCellValue();
                         Double pol = polCell.getNumericCellValue();
-                        bflow.cekRafaksi(brix, pol);
-                        //System.out.println("File name = " + xdsFile.getName() + "; Row " + dataNumber + ":" + idAnalisa + "|" + tglTs + "|" + brix + "|" + pol);
-                        DataXDS dataxds = new DataXDS(idAnalisa, tglTs ,brix, pol);
+                        DecimalFormat dfDuaDesimal = new DecimalFormat("#.##");
+                        DecimalFormat dfSatuDesimal = new DecimalFormat("#.#");
+                        dfDuaDesimal.setRoundingMode(RoundingMode.HALF_UP);
+                        dfSatuDesimal.setRoundingMode(RoundingMode.HALF_UP);
+                        // NILAI-NILAI ANALISA
+                        brix = Double.valueOf(dfSatuDesimal.format(brix));
+                        brix = brix + 1;
+                        pol = Double.valueOf(dfSatuDesimal.format(pol));
+                        Double purity = Double.valueOf(dfSatuDesimal.format((pol/brix)*100));
+                        // KASUS KHUSUS
+                            if (purity > 83){
+                                pol = Double.valueOf(dfSatuDesimal.format(0.83*brix));
+                                purity = 83.0;
+                            }
+                        // --------------------
+                        // --------------------
+                        DataXDS dataxds = new DataXDS(idAnalisa, tglTs ,brix, pol, purity, bflow.cekRafaksi(idAnalisa, brix, pol, purity));
                         lxds.add(dataxds);
                         dataNumber ++;
                     } catch (Exception e){
-                        //System.out.println("File name = " + xdsFile.getName() + "; Error at row = " + (dataNumber + 1) + " ;" 
-                        //        + e.toString());
                         writeLog("File name = " + xdsFile.getName() + "; Error at row = " + (dataNumber + 1) + " ;" + e.toString());
                         lxds.clear();
                         break;
@@ -182,14 +195,18 @@ public class ReaderController {
         if (status){
             try {
                 LocalDateTime timestamp = LocalDateTime.now();
-                Files.move(xdsFile.toPath(), xdsFile.toPath().resolveSibling(xdsFile.getName() + "." + timestamp + ".uploaded"));
+                String strTimestamp = timestamp.toString().replace(":", "_");
+                Files.copy(xdsFile.toPath(), xdsFile.toPath().resolveSibling(xdsFile.getName() + "." + strTimestamp + ".uploaded"));
+                xdsFile.delete();
             } catch (IOException ex) {
                 Logger.getLogger(ReaderController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             try {
                 LocalDateTime timestamp = LocalDateTime.now();
-                Files.move(xdsFile.toPath(), xdsFile.toPath().resolveSibling(xdsFile.getName() + "." + timestamp + ".failed"));
+                String strTimestamp = timestamp.toString().replace(":", "_");
+                Files.copy(xdsFile.toPath(), xdsFile.toPath().resolveSibling(xdsFile.getName() + "." + strTimestamp + ".failed"));
+                xdsFile.delete();
             } catch (IOException ex) {
                 Logger.getLogger(ReaderController.class.getName()).log(Level.SEVERE, null, ex);
             }
