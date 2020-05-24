@@ -21,15 +21,13 @@ public class BusinessFlow {
     public int cekRafaksi(String idAnalisa, Double brix, Double pol, Double purity){
         XdsDAOSQL xdsdao = new XdsDAOSQL();
         int rafaksi = 0;
-        if (brix < 17.50){
-            DecimalFormat dfBulat = new DecimalFormat("#");
-            dfBulat.setRoundingMode(RoundingMode.HALF_UP);
-            int HKrounded = Integer.valueOf(dfBulat.format(purity));
-            rafaksi = xdsdao.getNilaiRafaksi(brix,HKrounded);
-            // cek Brix
-            System.out.println("id = " + idAnalisa +"; brix = " + brix + "; pol = " + pol +"; HK = " + purity +"; HK(pemb) = " + 
-                    HKrounded + "; rafaksi = " + rafaksi);
-        }
+        DecimalFormat dfBulat = new DecimalFormat("#");
+        dfBulat.setRoundingMode(RoundingMode.HALF_UP);
+        int HKrounded = Integer.valueOf(dfBulat.format(purity));
+        rafaksi = xdsdao.getNilaiRafaksi(brix,HKrounded);
+        // cek Brix
+        System.out.println("id = " + idAnalisa +"; brix = " + brix + "; pol = " + pol +"; HK = " + purity +"; HK(pemb) = " + 
+                HKrounded + "; rafaksi = " + rafaksi);
         return rafaksi;
     }
     

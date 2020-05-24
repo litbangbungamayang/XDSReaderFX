@@ -27,7 +27,7 @@ public class DB {
     public static Connection getConn(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String server_lokal = "jdbc:mysql://localhost:3306/db_cs?user=root&password=adminBUMA789&useSSL=false";
+            String server_lokal = "jdbc:mysql://localhost:3306/simpg?user=root&password=adminBUMA789&useSSL=false";
             String server_kandir = "jdbc:mysql://192.168.208.98:3306/db_litbang?user=admintr&password=ptpn7@jaya&useSSL=false";
             String server_buma = "jdbc:mysql://192.168.39.150:3306/simpg?user=simpg&password=tiptpn7&useSSL=false";
             String server_cloud = "jdbc:mysql://128.199.189.176:3306/bungamay_litbang?user=bungamay_ods&password=bumaPTPN7&useSSL=false&noAccessToProcedureBodies=true";

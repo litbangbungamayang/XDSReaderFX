@@ -72,7 +72,7 @@ public class XdsDAOSQL implements XdsDAO{
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 purity_high = rs.getInt("purity");
-                rafaksi_high = rs.getInt("rafaksi");
+                rafaksi_low = rs.getInt("rafaksi");
             }
             sql = "select min(purity) as purity, max(rafaksi) as rafaksi from tbl_rafaksi where brix_low <= ? and brix_high >= ?";
             ps = conn.prepareStatement(sql);
@@ -81,34 +81,93 @@ public class XdsDAOSQL implements XdsDAO{
             rs = ps.executeQuery();
             while (rs.next()){
                 purity_low = rs.getInt("purity");
-                rafaksi_low = rs.getInt("rafaksi");
+                rafaksi_high = rs.getInt("rafaksi");
             }
-            if (brix > 13.49){
-                if (HK < purity_low){
-                    //ambil data rafaksi terendah pada range tersebut
+            
+            if (brix < 16.50 && brix > 13.49){
+                if (HK >= purity_high){
                     rafaksi = rafaksi_low;
-                } else {
-                    if ((HK <= purity_high) && (HK >= purity_low)){
-                        sql = "select purity, rafaksi from tbl_rafaksi where brix_low <= ? and brix_high >= ? and purity = ?";
-                        ps = conn.prepareStatement(sql);
-                        ps.setDouble(1, brix);
-                        ps.setDouble(2, brix);
-                        ps.setInt(3, HK);
-                        rs = ps.executeQuery();
-                        while (rs.next()){
-                            rafaksi = rs.getInt("rafaksi");
-                        }
-                    } else {
-                        if (HK > purity_high){
-                            rafaksi = 0;
-                        }
+                } else if (HK <= purity_low){
+                    rafaksi = rafaksi_high;
+                } else if (HK >= purity_low && HK <= purity_high){
+                    sql = "select purity, rafaksi from tbl_rafaksi where brix_low <= ? and brix_high >= ? and purity = ?";
+                    ps = conn.prepareStatement(sql);
+                    ps.setDouble(1, brix);
+                    ps.setDouble(2, brix);
+                    ps.setInt(3, HK);
+                    rs = ps.executeQuery();
+                    while (rs.next()){
+                        rafaksi = rs.getInt("rafaksi");
                     }
                 }
             } else {
-                if (HK < 84){
-                    rafaksi = 20;
+                if (brix >= 16.50){
+                    if (HK >= 75){
+                        rafaksi = 0;
+                    } else if (HK <= 70){
+                        rafaksi = 10;
+                    } else if (HK == 71){
+                        rafaksi = 8;
+                    } else if (HK == 72){
+                        rafaksi = 6;
+                    } else if (HK == 73){
+                        rafaksi = 4;
+                    } else if (HK == 74){
+                        rafaksi = 2;
+                    }
+                } else if (brix < 13.50){
+                    if (HK >= 75){
+                        rafaksi = 14;
+                    } else if (HK <= 72){
+                        rafaksi = 20;
+                    } else if (HK == 73){
+                        rafaksi = 18;
+                    } else if (HK == 74){
+                        rafaksi = 16;
+                    }
                 }
             }
+            //<editor-fold defaultstate="collapsed" desc="Revised">
+            /*
+            if (brix > 13.49){
+            if (HK < purity_low){
+            //ambil data rafaksi terendah pada range tersebut
+            rafaksi = rafaksi_low;
+            } else {
+            if ((HK <= purity_high) && (HK >= purity_low)){
+            sql = "select purity, rafaksi from tbl_rafaksi where brix_low <= ? and brix_high >= ? and purity = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setDouble(1, brix);
+            ps.setDouble(2, brix);
+            ps.setInt(3, HK);
+            rs = ps.executeQuery();
+            while (rs.next()){
+            rafaksi = rs.getInt("rafaksi");
+            }
+            } else {
+            if (HK > purity_high){
+            rafaksi = 0;
+            }
+            }
+            }
+            } else {
+            if (HK >= 75 && HK <= 82){
+            rafaksi = 14;
+            } else {
+            if (HK <= 72){
+            rafaksi = 20;
+            } else {
+            switch (HK){
+            case 73 : rafaksi = 18;
+            break;
+            case 74 : rafaksi = 16;
+            break;
+            }
+            }
+            }
+            }
+            */
+//</editor-fold>
         } catch (SQLException ex) {
             Logger.getLogger(XdsDAOSQL.class.getName()).log(Level.SEVERE, null, ex);
         }

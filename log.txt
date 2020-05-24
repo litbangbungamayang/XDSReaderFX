@@ -56,3 +56,10 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 16-JUNE-2019 17:47:55 : File name = 60.xls; Error at row = 16 ;java.lang.NullPointerException
 04-JULY-2019 15:02:53 : File name = Coba.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
 04-JULY-2019 15:14:06 : File name = Coba.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+06-JULY-2019 13:38:09 : 2019-07-06T13:38:09.755 : java.sql.SQLException: Access denied for user 'simpg'@'localhost' (using password: YES)
+06-JULY-2019 13:38:09 : File name = Simulasi HK Rev 3.xls; Error at row = 16 ;java.lang.NullPointerException
+11-JULY-2019 13:00:28 : File name = Spesimen Error.xls; Error at row = 60 ;java.lang.NumberFormatException: For input string: "�"
+11-JULY-2019 13:03:49 : File name = Spesimen Error.xls; Error at row = 60 ;java.lang.NumberFormatException: For input string: "�"
+11-JULY-2019 13:14:46 : File name = Spesimen Error.xls; Error at row = 60 ;java.lang.NumberFormatException: For input string: "�"
+18-JULY-2019 07:55:45 : File name = Coba 2.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
+18-JULY-2019 07:57:34 : File name = Coba 2.xls; Error at row = 16 ;java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell

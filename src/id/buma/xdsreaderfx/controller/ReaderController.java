@@ -160,7 +160,7 @@ public class ReaderController {
                         dfSatuDesimal.setRoundingMode(RoundingMode.HALF_UP);
                         // NILAI-NILAI ANALISA
                         brix = Double.valueOf(dfSatuDesimal.format(brix));
-                        brix = brix + 1;
+                        //brix = brix;
                         pol = Double.valueOf(dfSatuDesimal.format(pol));
                         Double purity = Double.valueOf(dfSatuDesimal.format((pol/brix)*100));
                         // KASUS KHUSUS
@@ -170,6 +170,7 @@ public class ReaderController {
                             }
                         // --------------------
                         // --------------------
+                        //System.out.println("Row = " + dataNumber);
                         DataXDS dataxds = new DataXDS(idAnalisa, tglTs ,brix, pol, purity, bflow.cekRafaksi(idAnalisa, brix, pol, purity));
                         lxds.add(dataxds);
                         dataNumber ++;
@@ -178,7 +179,7 @@ public class ReaderController {
                         lxds.clear();
                         break;
                     }
-                } while (sheet.getRow(dataNumber + 1) != null);
+                } while (!sheet.getRow(dataNumber).getCell(ID_COLUMN).getStringCellValue().equals(""));
                 if (!lxds.isEmpty()){
                     if (xdsdao.insertXds(lxds)) return true;
                 }
